@@ -2,5 +2,5 @@
 
 ## Group Partners 
 
-### Ojeen Gammah 
-### Neelay Joglekar
+<li>Ojeen Gammah </li>
+<li>Neelay Joglekar</li>
