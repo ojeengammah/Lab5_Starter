@@ -9,6 +9,7 @@ function init() {
   const audio = document.getElementById('expose').getElementsByTagName('audio')[0];
   const slider = document.getElementById('volume');
   const icon = document.getElementById('volume-controls').getElementsByTagName('img')[0];
+  const button = document.getElementById('expose').getElementsByTagName('button')[0];
 
   horn.addEventListener('change', (event) => {
   if (horn.value == horn.options[0].value){
@@ -28,15 +29,16 @@ function init() {
     audio.setAttribute('src', './assets/audio/party-horn.mp3');
   }
   });
-
     slider.addEventListener('change', (event) => {
-    if (slider.value == 0){
+      let vol = parseInt(slider.value);
+      audio.volume = vol / 100.0;
+    if (vol == 0){
       icon.setAttribute('src', './assets/icons/volume-level-0.svg')
       icon.setAttribute('alt', 'Volume level 0')
-    } else if (slider.value < 33) {
+    } else if (vol < 33) {
       icon.setAttribute('src', './assets/icons/volume-level-1.svg')
       icon.setAttribute('alt', 'Volume level 1')
-    } else if (slider.value < 66) {
+    } else if (vol < 66) {
       icon.setAttribute('src', './assets/icons/volume-level-2.svg')
       icon.setAttribute('alt', 'Volume level 2')
     } else {
@@ -44,5 +46,10 @@ function init() {
       icon.setAttribute('alt', 'Volume level 3')
     }
   });
+  button.addEventListener('click', (event) =>{
+      audio.play(); 
+  });
+
   
+
 }
