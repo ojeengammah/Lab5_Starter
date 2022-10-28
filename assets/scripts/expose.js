@@ -29,9 +29,10 @@ function init() {
     audio.setAttribute('src', './assets/audio/party-horn.mp3');
   }
   });
-    slider.addEventListener('change', (event) => {
+    slider.addEventListener('input', (event) => {
       let vol = parseInt(slider.value);
       audio.volume = vol / 100.0;
+
     if (vol == 0){
       icon.setAttribute('src', './assets/icons/volume-level-0.svg');
       icon.setAttribute('alt', 'Volume level 0')
@@ -51,6 +52,7 @@ function init() {
       if (horn.value == horn.options[3].value){
         jsConfetti.addConfetti();
       }
+
   });
 
   

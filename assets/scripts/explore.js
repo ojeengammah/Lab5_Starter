@@ -3,16 +3,14 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  const horn = document.getElementById('horn-select');
   const image = document.getElementById('explore').getElementsByTagName('img')[0];
   const voice = document.getElementById('voice-select');
   const text = document.getElementById('text-to-speak')
   const button = document.getElementById('explore').getElementsByTagName('button')[0];
   const synth = window.speechSynthesis;
+  let voices = [];
 
-  synth.onvoiceschanged = (event) =>{
-    let voices = [];
-
+  synth.onvoiceschanged = () =>{
     voices = synth.getVoices();
 
     for (let i = 0; i < voices.length ; i++) {
@@ -27,7 +25,25 @@ function init() {
       option.setAttribute('data-name', voices[i].name);
       voice.appendChild(option);
     }
-  };
-    
 
+  };
+  button.addEventListener('click', (event) =>{
+    
+    const utterThis = new SpeechSynthesisUtterance(text.value);
+    const selectedOption = voice.selectedIndex-1;
+    
+    if (selectedOption >= 0) {
+      utterThis.voice = voices[selectedOption];
+      console.log(utterThis.voice)
+    
+      synth.speak(utterThis);
+      text.blur();
+
+     // image.setAttribute("src", "")
+     // image.
+    }
+  });
 }
+
+  
+
