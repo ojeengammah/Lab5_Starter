@@ -34,14 +34,16 @@ function init() {
     
     if (selectedOption >= 0) {
       utterThis.voice = voices[selectedOption];
-      console.log(utterThis.voice)
-    
-      synth.speak(utterThis);
       text.blur();
-
-     // image.setAttribute("src", "")
-     // image.
+      synth.speak(utterThis);
+     image.setAttribute("src", "./assets/images/smiling-open.png");
+     
+     // image.setAttribute("src", "./assets/images/smiling.png");
+    
     }
+    if (!synth.speaking){
+      image.setAttribute("src", "./assets/images/smiling-open.png");
+      }
   });
 }
 
