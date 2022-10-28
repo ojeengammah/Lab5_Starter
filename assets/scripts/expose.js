@@ -1,5 +1,4 @@
 // expose.js
-
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
@@ -10,6 +9,7 @@ function init() {
   const slider = document.getElementById('volume');
   const icon = document.getElementById('volume-controls').getElementsByTagName('img')[0];
   const button = document.getElementById('expose').getElementsByTagName('button')[0];
+  const jsConfetti = new JSConfetti();
 
   horn.addEventListener('change', (event) => {
   if (horn.value == horn.options[0].value){
@@ -33,7 +33,7 @@ function init() {
       let vol = parseInt(slider.value);
       audio.volume = vol / 100.0;
     if (vol == 0){
-      icon.setAttribute('src', './assets/icons/volume-level-0.svg')
+      icon.setAttribute('src', './assets/icons/volume-level-0.svg');
       icon.setAttribute('alt', 'Volume level 0')
     } else if (vol < 33) {
       icon.setAttribute('src', './assets/icons/volume-level-1.svg')
@@ -48,6 +48,9 @@ function init() {
   });
   button.addEventListener('click', (event) =>{
       audio.play(); 
+      if (horn.value == horn.options[3].value){
+        jsConfetti.addConfetti();
+      }
   });
 
   
