@@ -4,6 +4,5 @@
 
 <li>Ojeen Gammah </li>
 <li>Neelay Joglekar</li>
-
-https://ojeengammah.github.io/Lab5_Starter/
-
+<br>
+https://ojeengammah.github.io/Lab5_Starter/expose.html
