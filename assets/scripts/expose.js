@@ -47,9 +47,12 @@ function init() {
       icon.setAttribute('alt', 'Volume level 3')
     }
   });
+
+  // this needs adjustment!
   button.addEventListener('click', (event) =>{
       audio.play(); 
       if (horn.value == horn.options[3].value){
+        
         jsConfetti.addConfetti();
       }
 

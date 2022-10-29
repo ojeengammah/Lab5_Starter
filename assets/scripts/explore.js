@@ -32,18 +32,14 @@ function init() {
     const utterThis = new SpeechSynthesisUtterance(text.value);
     const selectedOption = voice.selectedIndex-1;
     
-    if (selectedOption >= 0) {
       utterThis.voice = voices[selectedOption];
       text.blur();
       synth.speak(utterThis);
-     image.setAttribute("src", "./assets/images/smiling-open.png");
-     
-     // image.setAttribute("src", "./assets/images/smiling.png");
-    
-    }
-    if (!synth.speaking){
       image.setAttribute("src", "./assets/images/smiling-open.png");
-      }
+      utterThis.addEventListener('end', (event) =>{
+      document.querySelector("#explore img").src = "assets/images/smiling.png";
+    });
+  
   });
 }
 
